@@ -10,8 +10,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-      gridTemplateColumns: { // создание своих классов
-        "game-field": "repeat(3, 30px)", 
+      gridTemplateColumns: {
+        // создание своих классов
+        "game-field": "repeat(3, 30px)",
       },
     },
   },

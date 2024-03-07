@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function HomePage() {
   const cells = [null, null, null, null, null, null, null, null, null];
   const [isRed, setIsRed] = useState(false);
-  
+
   return (
     <>
       <div>Hello World!</div>
@@ -22,7 +22,12 @@ export default function HomePage() {
           );
         })}
       </div>
-      <button className="px-3 py-1 mt-2 border-solid border-slate-950 border-2" onClick={() => setIsRed((val) => !val)}>Toggle</button>
+      <button
+        className="px-3 py-1 mt-2 border-solid border-slate-950 border-2"
+        onClick={() => setIsRed((val) => !val)}
+      >
+        Toggle
+      </button>
     </>
   );
 }
