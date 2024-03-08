@@ -14,6 +14,9 @@ module.exports = {
         // создание своих классов
         "game-field": "repeat(3, 30px)",
       },
+      lineHeight: {
+        tight: "1.2",
+      },
     },
   },
   plugins: [],
