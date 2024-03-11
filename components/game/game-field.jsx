@@ -5,8 +5,7 @@ import { GAME_SYMBOLS, MOVE_ORDER } from "./constants";
 import { GameSymbol } from "./game-symbol";
 import { useGameState } from "./use-game-state";
 
-export function GameField({ className, playersCount }) {
-  const { cells, currentMove, nextMove, handleCellClick } = useGameState(playersCount);
+export function GameField({ className, cells, currentMove, nextMove, handleCellClick}) {
 
   const actions = (
     <>
