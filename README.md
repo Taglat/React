@@ -1,13 +1,17 @@
-npx next lint - Установка и линтинг
+// 1. Установка и линтинг npx next lint - 
 ESLint - плагин VsCode
 
 npx prettier --write . - запустить претиер
 .prettierrc - файл правил
 .prettierignore - файл игнора
 
-// Техника Public API
+Техника Public API
+export { GameTitle } from "./game-title";
+export { GameInfo } from "./game-info";
+export { GameField } from "./game-field";
+export { useGameState } from "./use-game-state";
 
-// useState
+// 2. useState
 * Если несколько состоний зависят от друг друг то лучше обьединить в один обьект состояние
 * Если у нам нужно производное значение из состояние не стоит для него созавать отдельное состояние, лучше использовать функцию которая будет получать производное значение
 
@@ -16,7 +20,7 @@ npx prettier --write . - запустить претиер
     <div className=" text-lg leading-tight truncate">{name}</div> // truncate
 </div>
 
-// useEffect - для работы с DOM, BOM, Данных с серврера
+// 3. useEffect - для работы с DOM, BOM, Данных с серврера
 Состоит из Effect, Функция очистки, Массив зависимостей
 
 Функция очистки
@@ -38,3 +42,5 @@ useEffect(() => {
       }
     }
 }, [isTimerRunning]); // Массив зависимостей
+
+// 4. Бизнес Логика - сложная, не должна перемешиваться с отображением. Чаще хранится на сервере.
