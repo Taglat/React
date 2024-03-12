@@ -28,8 +28,8 @@ export function GameField({ className, cells, currentMove, nextMove, handleCellC
       <GameGrid>
         {cells.map((symbol, index) => {
           return (
-            <GameCell key={index} isWinner={winnerSequence?.includes(index)} onClick={() => handleCellClick(index)}>
-              {symbol && <GameSymbol symbol={symbol} className="w-5 h-5" />}
+            <GameCell key={index} isWinner={winnerSequence?.includes(index)} onClick={() => handleCellClick(index)} disabled={!!winnerSequence}>
+              {symbol && <GameSymbol symbol={symbol} className="w-5 h-5"  />}
             </GameCell>
           );
         })}
@@ -38,9 +38,10 @@ export function GameField({ className, cells, currentMove, nextMove, handleCellC
   );
 }
 
-function GameCell({ children, onClick, isWinner }) {
+function GameCell({ children, onClick, isWinner, disabled }) {
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
       className={clsx("border border-slate-200 -ml-px -mt-px flex justify-center items-center", isWinner && "bg-orange-100")}
     >

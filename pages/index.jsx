@@ -11,7 +11,7 @@ export default function HomePage() {
       <Header />
       <main className="pt-6 mx-auto w-max">
         <GameTitle playersCount={playersCount} />
-        <GameInfo className="mt-4 " playersCount={playersCount} currentMove={currentMove} />
+        <GameInfo className="mt-4 " playersCount={playersCount} currentMove={currentMove} isWinner={!!winnerSequence} />
         <GameField className="mt-6" playersCount={playersCount} cells={cells} currentMove={currentMove} nextMove={nextMove} handleCellClick={handleCellClick} winnerSequence={winnerSequence} />
       </main>
     </div>
