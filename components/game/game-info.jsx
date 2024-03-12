@@ -91,8 +91,11 @@ function PlayerInfo({ playerInfo, isRight, isTimerRunning, onTimeOver }) {
   }, [seconds]);
 
   const getTimerColor = () => {
-    return isDanger ? "text-orange-600" : "text-slate-900";
-  }
+    if (isTimerRunning) {
+      return isDanger ? "text-orange-600" : "text-slate-900";
+    }
+    return "text-slate-200";
+  };
 
   return (
     <div className="flex gap-3 items-center">
@@ -110,9 +113,9 @@ function PlayerInfo({ playerInfo, isRight, isTimerRunning, onTimeOver }) {
       <div className={clsx("h-6 w-px bg-slate-200", isRight && "order-2")} />
       <div
         className={clsx(
-          getTimerColor(),
           "text-lg font-semibold w-[60px]",
           isRight && "order-1",
+          getTimerColor(),
         )}
       >
         {minutesString}:{secondsString}
