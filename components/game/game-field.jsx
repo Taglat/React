@@ -5,7 +5,7 @@ import { GAME_SYMBOLS, MOVE_ORDER } from "./constants";
 import { GameSymbol } from "./game-symbol";
 import { useGameState } from "./use-game-state";
 
-export function GameField({ className, cells, currentMove, nextMove, handleCellClick, winnerSequence}) {
+export function GameField({ className, cells, currentMove, nextMove, handleCellClick, winnerSequence, winnerSymbol}) {
 
   const actions = (
     <>
@@ -28,8 +28,8 @@ export function GameField({ className, cells, currentMove, nextMove, handleCellC
       <GameGrid>
         {cells.map((symbol, index) => {
           return (
-            <GameCell key={index} isWinner={winnerSequence?.includes(index)} onClick={() => handleCellClick(index)} disabled={!!winnerSequence}>
-              {symbol && <GameSymbol symbol={symbol} className="w-5 h-5"  />}
+            <GameCell key={index} isWinner={winnerSequence?.includes(index)} onClick={() => handleCellClick(index)} disabled={winnerSequence}>
+              {symbol && <GameSymbol symbol={symbol} className="w-5 h-5" disabled={!!winnerSymbol} />}
             </GameCell>
           );
         })}
