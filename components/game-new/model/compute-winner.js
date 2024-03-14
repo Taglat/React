@@ -1,22 +1,3 @@
-import { useState } from "react";
-import { MOVE_ORDER, GAME_SYMBOLS } from "./constants";
-
-export function getNextMove(currentMove, playersCount, playersTimeOver) {
-  const slicedMoveOrder = MOVE_ORDER.slice(0, playersCount).filter(
-    (symbol) => !playersTimeOver.includes(symbol)
-  );
-  
-  const nextMoveIndex = slicedMoveOrder.indexOf(currentMove) + 1;
-  return slicedMoveOrder[nextMoveIndex] ?? MOVE_ORDER[0];
-}
-
-// 0             |  x = 0, y = 0 => 19 * 0 + 0
-// 19 * 1 + 1    | x = 1, y = 1 => 20
-// 19 * 2 + 2    | x = 2, y = 2 => 40
-// 19 * 3 + 3    | x = 3, y = 3 => 60
-// 19 * 4 + 4    | x = 4, y = 4 => 80
-// x + y * 19
-
 export function computeWinner(cells, sequenceSize = 5, fieldSize = 19) {
   const gap = Math.floor(sequenceSize / 2);
 
@@ -33,9 +14,9 @@ export function computeWinner(cells, sequenceSize = 5, fieldSize = 19) {
 
   function getSequenceIndexes(i) {
     const res = [
-      [], // -
-      [], // \
-      [], // /
+      [],
+      [],
+      [],
       [], // |
     ];
 
@@ -70,3 +51,10 @@ export function computeWinner(cells, sequenceSize = 5, fieldSize = 19) {
 
   return undefined;
 }
+
+// 0             |  x = 0, y = 0 => 19 * 0 + 0
+// 19 * 1 + 1    | x = 1, y = 1 => 20
+// 19 * 2 + 2    | x = 2, y = 2 => 40
+// 19 * 3 + 3    | x = 3, y = 3 => 60
+// 19 * 4 + 4    | x = 4, y = 4 => 80
+// x + y * 19
