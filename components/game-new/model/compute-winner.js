@@ -50,6 +50,7 @@ export function computeWinner(gameState, sequenceSize = 5, fieldSize = 19) {
     }
   }
 
+  console.log("computeWinner");
   return undefined;
 }
 

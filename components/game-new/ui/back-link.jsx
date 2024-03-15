@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowLeftIcon } from "./icons/arrow-left-icon";
 
 export function BackLink() {
+  console.log("backlink")
   return (
     <Link
       href="#"
