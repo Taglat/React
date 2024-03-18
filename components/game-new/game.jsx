@@ -39,7 +39,7 @@ export function Game() {
       type: GAME_STATE_ACTIONS.TICK,
       now: Date.now(),
     });
-  }));
+  }), []); // fix after "useCallback, memo" commit 
 
   const winnerSequence = useMemo(() => computeWinner(gameState), [gameState]);
   const nextMove = getNextMove(gameState);
